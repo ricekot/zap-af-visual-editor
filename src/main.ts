@@ -1,5 +1,6 @@
 import "./style.css";
-import zapLogo from '../public/zap.svg';
+import zapLogo from "../public/zap.svg";
+import mermaid from "mermaid";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="h-screen flex flex-col">
@@ -17,9 +18,14 @@ jobs:
         </div>
         <div class="w-1/2 p-4 overflow-auto">
             <div id="preview" class="border p-4 bg-white">
-                <pre class="mermaid"></pre>
+                <pre class="mermaid">
+graph TD;
+  script --> spider;
+                </pre>
             </div>
         </div>
     </div>
   </div>
 `;
+
+mermaid.initialize({});
