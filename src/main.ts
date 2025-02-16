@@ -4,11 +4,11 @@ import { basicSetup, EditorView } from "codemirror";
 import { EditorState } from "@codemirror/state";
 import { yaml } from "@codemirror/lang-yaml";
 import * as Blockly from "blockly";
-import { blocks } from "./blockly/blocks";
+import { blocks } from "./blockly/blocks/main.ts";
 import { save, load } from "./blockly/serialization.ts";
 import { toolbox } from "./blockly/toolbox.ts";
 import { Workspace } from "blockly/core";
-import { zapAfYamlGenerator } from "./blockly/generators";
+import { zapAfYamlGenerator } from "./blockly/generators/main.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="h-screen flex flex-col">
@@ -17,10 +17,10 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         ZAP AF Plan Visual Editor
     </nav>
     <div class="flex flex-1">
-        <div class="w-1/3 p-4">
+        <div class="w-1/4 p-4">
             <div id="generatedCode" class="h-[calc(100vh-var(--spacing)*20)] border border-gray-200"></div>
         </div>
-        <div class="w-2/3 p-4">
+        <div class="w-3/4 p-4">
             <div id="blocklyDiv" class="h-[calc(100vh-var(--spacing)*20)]"></div>
         </div>
     </div>

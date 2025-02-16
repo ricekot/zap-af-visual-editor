@@ -13,8 +13,10 @@ export const ZAP_ENV_BLOCK = {
   init: function (this: ZapEnvBlock) {
     this.setColour(230);
     this.setTooltip("Define environment settings for the ZAP automation plan.");
+    this.setInputsInline(false);
 
     this.appendDummyInput().appendField("Environment");
+    this.appendValueInput("CONTEXTS").appendField("Contexts").setCheck("Array");
     this.appendDummyInput()
       .appendField(new FieldCheckbox("FALSE"), "SHOW_PARAMS")
       .appendField("Show Parameters");
@@ -23,8 +25,7 @@ export const ZAP_ENV_BLOCK = {
       this: FieldCheckbox,
       newValue: string,
     ) {
-      // @ts-ignore
-      this.getSourceBlock()._updateShape(newValue == "TRUE");
+      (this.getSourceBlock() as ZapEnvBlock)._updateShape(newValue == "TRUE");
       return undefined;
     });
   },
@@ -79,5 +80,31 @@ export const ZAP_ENV_BLOCK = {
       this.removeInput("CONTINUE_ON_FAILURE");
       this.removeInput("PROGRESS_TO_STDOUT");
     }
+  },
+};
+
+export type ZapEnvContextBlock = Block & ZapEnvContextBlockMixin;
+interface ZapEnvContextBlockMixin extends ZapEnvContextBlockMixinType {}
+type ZapEnvContextBlockMixinType = typeof ZAP_ENV_CONTEXT_BLOCK;
+
+export const ZAP_ENV_CONTEXT_BLOCK = {
+  init: function (this: ZapEnvContextBlock) {
+    this.setColour(230);
+    this.setTooltip("Define environment context settings.");
+    this.setInputsInline(false);
+    this.setOutput(true, "Context");
+
+    this.appendDummyInput().appendField("Context");
+
+    this.appendDummyInput("NAME")
+      .appendField("Name")
+      .appendField(new Blockly.FieldTextInput("Default Context"), "NAME");
+    this.appendValueInput("URLS").appendField("URLs").setCheck("Array");
+    this.appendValueInput("INCLUDE_PATHS")
+      .appendField("Include Paths")
+      .setCheck("Array");
+    this.appendValueInput("EXCLUDE_PATHS")
+      .appendField("Exclude Paths")
+      .setCheck("Array");
   },
 };
