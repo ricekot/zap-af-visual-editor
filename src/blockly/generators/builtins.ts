@@ -4,11 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-/**
- * @fileoverview The full custom JSON generator built during the custom
- * generator codelab.
- */
-
 import { Order } from "./main.ts";
 import { Block } from "blockly/core";
 import { CodeGenerator } from "blockly";
@@ -56,7 +51,6 @@ export function builtinListsCreateWithToYaml(
     if (subBlock) {
       if (subBlock.type === "text") {
         values.push(`- "${subBlock.getFieldValue("TEXT")}"`);
-        continue;
       } else {
         let valueCode: string | [string, number] =
           generator.blockToCode(subBlock);

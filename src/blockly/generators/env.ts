@@ -41,6 +41,5 @@ export function zapEnvContextBlockToYaml(
   return `name: ${name}
 urls: ${urls}
 includePaths: ${includePaths}
-excludePaths: ${excludePaths}
-`;
+excludePaths: ${excludePaths}`;
 }
