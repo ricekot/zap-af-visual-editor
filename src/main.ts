@@ -18,10 +18,10 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </nav>
     <div class="flex flex-1">
         <div class="w-1/3 p-4">
-            <div id="generatedCode" class="h-[calc(100vh-var(--spacing)*20)] border"></div>
+            <div id="generatedCode" class="h-[calc(100vh-var(--spacing)*20)] border border-gray-200"></div>
         </div>
         <div class="w-2/3 p-4">
-            <div id="blocklyDiv" class="p-4 h-[calc(100vh-var(--spacing)*20)] border"></div>
+            <div id="blocklyDiv" class="h-[calc(100vh-var(--spacing)*20)]"></div>
         </div>
     </div>
   </div>
