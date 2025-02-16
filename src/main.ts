@@ -1,6 +1,8 @@
 import "./style.css";
-import zapLogo from "../public/zap.svg";
+import zapLogo from "/zap.svg?url";
 import mermaid from "mermaid";
+import {basicSetup, EditorView} from "codemirror";
+import {yaml} from "@codemirror/lang-yaml";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="h-screen flex flex-col">
@@ -10,14 +12,10 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </nav>
     <div class="flex flex-1">
         <div class="w-1/2 p-4">
-            <textarea id="editor" class="w-full h-full border">
-jobs:
-  - type: script
-  - type: spider
-            </textarea>
+            <div id="editor" class="h-[calc(100vh-var(--spacing)*20)] border"></div>
         </div>
-        <div class="w-1/2 p-4 overflow-auto">
-            <div id="preview" class="border p-4 bg-white">
+        <div class="w-1/2 p-4">
+            <div id="preview" class="p-4 h-[calc(100vh-var(--spacing)*20)] border">
                 <pre class="mermaid">
 graph TD;
   script --> spider;
@@ -27,5 +25,13 @@ graph TD;
     </div>
   </div>
 `;
+
+
+// Initialize CodeMirror
+new EditorView({
+    doc: "jobs:\n  - type: script\n  - type: spider",
+    extensions: [basicSetup, yaml()],
+    parent: document.getElementById("editor")!,
+});
 
 mermaid.initialize({});

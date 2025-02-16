@@ -17,6 +17,8 @@
     "vite": "^6.1.0"
   },
   "dependencies": {
+    "@codemirror/lang-yaml": "^6.1.2",
+    "codemirror": "^6.0.1",
     "mermaid": "^11.4.1"
   }
 }
