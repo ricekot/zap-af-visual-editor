@@ -4,17 +4,17 @@ import { basicSetup, EditorView } from "codemirror";
 import { EditorState } from "@codemirror/state";
 import { yaml } from "@codemirror/lang-yaml";
 import * as Blockly from "blockly";
-import { blocks } from "./blockly/blocks/json.ts";
-import { jsonGenerator } from "./blockly/generators/json.ts";
+import { blocks } from "./blockly/blocks";
 import { save, load } from "./blockly/serialization.ts";
 import { toolbox } from "./blockly/toolbox.ts";
 import { Workspace } from "blockly/core";
+import { zapAfYamlGenerator } from "./blockly/generators";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="h-screen flex flex-col">
     <nav class="h-12 bg-gray-800 text-white flex items-center px-4">
         <img src="${zapLogo}" class="h-8 mr-2.5" alt="ZAP logo" />
-        ZAP AF Plan Visualizer
+        ZAP AF Plan Visual Editor
     </nav>
     <div class="flex flex-1">
         <div class="w-1/3 p-4">
@@ -44,7 +44,7 @@ const ws: Workspace = Blockly.inject(blocklyDiv!, { toolbox });
 // This function resets the code divs and shows the
 // generated code from the workspace.
 const generateCode = () => {
-  const code = jsonGenerator.workspaceToCode(ws);
+  const code = zapAfYamlGenerator.workspaceToCode(ws);
   // Add code to codemirror editor
   editor.dispatch({
     changes: { from: 0, to: editor.state.doc.length, insert: code },

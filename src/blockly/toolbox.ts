@@ -3,6 +3,7 @@
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
+import { BlockNames } from "./constants.ts";
 
 export const toolbox = {
   kind: "flyoutToolbox",
@@ -34,6 +35,10 @@ export const toolbox = {
     {
       kind: "block",
       type: "lists_create_with",
+    },
+    {
+      kind: "block",
+      type: BlockNames.ZAP_ENV,
     },
   ],
 };
