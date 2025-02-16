@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
 .cm-editor {
-    height: 100%;
-    overflow: scroll;
+  height: 100%;
+  overflow: scroll;
 }
