@@ -13,13 +13,7 @@ export const toolbox = {
     { kind: "block", type: BlockNames.MATH_NUMBER },
     { kind: "block", type: BlockNames.LOGIC_BOOLEAN },
     { kind: "block", type: BlockNames.LISTS_CREATE_WITH },
-    {
-      kind: "block",
-      type: BlockNames.ZAP_ENV,
-    },
-    {
-      kind: "block",
-      type: BlockNames.ZAP_ENV_CONTEXTS,
-    },
+    { kind: "block", type: BlockNames.ZAP_ENV },
+    { kind: "block", type: BlockNames.ZAP_ENV_CONTEXTS },
   ],
 };

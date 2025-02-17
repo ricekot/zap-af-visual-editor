@@ -9,9 +9,7 @@ import {
   builtinTextToYaml,
 } from "./builtins.ts";
 
-export const Order = {
-  ATOMIC: 0,
-};
+export const Order = { ATOMIC: 0 };
 
 export const zapAfYamlGenerator = new Blockly.Generator("ZAP_AF_YAML");
 
