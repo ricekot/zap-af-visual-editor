@@ -13,7 +13,7 @@ export function zapEnvBlockToYaml(block: Block, generator: CodeGenerator) {
     block.getFieldValue("PROGRESS_TO_STDOUT_CHECKBOX") === "TRUE";
 
   return `env:
-  contexts: ${contexts}
+  contexts: ${contexts || "[]"}
   parameters:
     failOnError: ${failOnError}
     failOnWarning: ${failOnWarning}
@@ -39,7 +39,7 @@ export function zapEnvContextBlockToYaml(
     Order.ATOMIC,
   );
   return `name: ${name}
-urls: ${urls}
-includePaths: ${includePaths}
-excludePaths: ${excludePaths}`;
+urls: ${urls || "[]"}
+includePaths: ${includePaths || "[]"}
+excludePaths: ${excludePaths || "[]"}`;
 }
