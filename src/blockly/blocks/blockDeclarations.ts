@@ -2,7 +2,7 @@
 // This does not register their definitions with Blockly.
 // This file has no side effects!
 
-import { ZAP_ENV_BLOCK, ZAP_ENV_CONTEXT_BLOCK } from "./env.ts";
+import { ZAP_ENV_BLOCK, ZAP_ENV_CONTEXT_BLOCK } from "./zapEnvBlocks.ts";
 import { BlockNames } from "../constants.ts";
 
 export const blocks: { [blockName: string]: any } = {};

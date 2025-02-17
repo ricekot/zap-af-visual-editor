@@ -1,6 +1,6 @@
 import { CodeGenerator } from "blockly";
 import { Block } from "blockly/core";
-import { Order } from "./main.ts";
+import { Order } from "./zapYamlGenerator.ts";
 
 export function zapEnvBlockToYaml(block: Block, generator: CodeGenerator) {
   const contexts = generator.valueToCode(block, "CONTEXTS", Order.ATOMIC);

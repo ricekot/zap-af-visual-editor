@@ -4,11 +4,11 @@ import { basicSetup, EditorView } from "codemirror";
 import { EditorState } from "@codemirror/state";
 import { yaml } from "@codemirror/lang-yaml";
 import * as Blockly from "blockly";
-import { blocks } from "./blockly/blocks/main.ts";
+import { blocks } from "./blockly/blocks/blockDeclarations.ts";
 import { save, load } from "./blockly/serialization.ts";
 import { toolbox } from "./blockly/toolbox.ts";
 import { Workspace } from "blockly/core";
-import { zapAfYamlGenerator } from "./blockly/generators/main.ts";
+import { zapAfYamlGenerator } from "./blockly/generators/zapYamlGenerator.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="h-screen flex flex-col">

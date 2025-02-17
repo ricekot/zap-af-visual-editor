@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Order } from "./main.ts";
+import { Order } from "./zapYamlGenerator.ts";
 import { Block } from "blockly/core";
 import { CodeGenerator } from "blockly";
 
