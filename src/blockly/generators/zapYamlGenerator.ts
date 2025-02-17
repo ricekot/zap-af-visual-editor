@@ -3,7 +3,7 @@ import { BlockNames } from "../constants.ts";
 import {
   zapEnvBlockToYaml,
   zapEnvContextBlockToYaml,
-} from "./zapEnvConverter.ts";
+} from "./zapEnvConverters.ts";
 import {
   builtinListsCreateWithToYaml,
   builtinLogicBooleanToYaml,
